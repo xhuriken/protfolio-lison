@@ -1,13 +1,24 @@
 // src/components/admin/ThemeSwitcher.jsx
+import { useEffect } from 'react';
 import { FaPalette } from 'react-icons/fa';
 
 export default function ThemeSwitcher() {
   
-  // Change the CSS class on the body to switch colors
+  // Load saved theme on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+      document.body.className = savedTheme;
+    }
+  }, []);
+
   const changeTheme = (themeClass) => {
     document.body.className = themeClass;
+    // Save to browser memory
+    localStorage.setItem('portfolio-theme', themeClass);
   };
 
+  
   return (
     <section className="bg-card p-6 rounded-[32px] shadow-sm mb-8">
       <div className="flex items-center gap-2 mb-4">
