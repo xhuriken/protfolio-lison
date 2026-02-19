@@ -27,7 +27,7 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <section className="bg-card p-6 rounded-[32px] shadow-sm mb-8">
+    <section className="bg-card/60 p-6 rounded-[32px] shadow-sm mb-8">
       <div className="flex items-center gap-2 mb-4">
         <FaPalette className="text-accent text-xl" />
         <h2 className="text-2xl font-bold text-primary">Theme Switcher !</h2>

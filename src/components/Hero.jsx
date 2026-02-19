@@ -20,7 +20,7 @@ export default function Hero({ data }) {
  if (!data) return null;
 
   return (
-    <div className="relative isolate flex flex-col md:flex-row items-center gap-8 py-12 px-4 md:px-8 bg-card rounded-[32px] shadow-sm mb-12">
+    <div className="relative isolate flex flex-col md:flex-row items-center gap-8 py-12 px-4 md:px-8 bg-card/60 rounded-[32px] shadow-sm mb-12">
       <Meteors></Meteors>
 
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 w-full">
@@ -29,7 +29,7 @@ export default function Hero({ data }) {
           <img 
             src={data.imageUrl} 
             alt="Profile" 
-            className="w-full h-full object-cover rounded-full border-4 border-accent/20 shadow-md"
+            className="w-full h-full object-cover rounded-4xl border-4 border-accent/20 shadow-md"
           />
         </div>
 
@@ -47,7 +47,7 @@ export default function Hero({ data }) {
             
             <button 
               onClick={() => handleCopy(data.email, 'email')}
-              className="group flex items-center justify-between gap-3 px-5 py-3 bg-secondary/10 hover:bg-secondary/20 text-secondary rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
+              className="group flex items-center justify-between gap-3 px-5 py-3 bg-secondary/10 hover:scale-105 hover:bg-secondary/20 text-secondary rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
             >
               <div className="flex items-center gap-2">
                 <FaEnvelope />
@@ -58,7 +58,7 @@ export default function Hero({ data }) {
 
             <button 
               onClick={() => handleCopy(data.phone, 'phone')}
-              className="group flex items-center justify-between gap-3 px-5 py-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
+              className="group flex items-center justify-between gap-3 px-5 py-3 bg-accent/10 hover:scale-105 hover:bg-accent/20 text-accent rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
             >
               <div className="flex items-center gap-2">
                 <FaPhone />
@@ -70,6 +70,17 @@ export default function Hero({ data }) {
           </div>
         </div>
       </div>
+
+      <div 
+        className="absolute bottom-1 right-6 w-24 md:w-36 h-24 md:h-36 -rotate-12 bg-accent/30"
+        style={{
+          maskImage: 'url(/hero.svg)',
+          WebkitMaskImage: 'url(/hero.svg)',
+          maskRepeat: 'no-repeat',
+          maskSize: 'contain'
+        }}
+      />
+
     </div>
   );
 }

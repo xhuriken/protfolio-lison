@@ -50,9 +50,9 @@ export default function ArtworkManager({ artworks, setArtworks }) {
   };
 
   return (
-    <section className="bg-card p-6 md:p-8 rounded-[32px] shadow-sm mb-12">
+    <section className="bg-card/60 p-6 md:p-8 rounded-[32px] shadow-sm mb-12">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 border-b border-black/5 pb-6">
-        <h2 className="text-2xl font-bold text-primary">Manage Artworks</h2>
+        <h2 className="text-2xl font-bold text-primary">Here Is Your Art &#60;3</h2>
         <button onClick={handleAddNew} className="cursor-pointer flex items-center gap-2 px-6 py-3 bg-secondary text-card font-bold rounded-xl hover:scale-105 transition-transform">
           <FaPlus /> Add New Artwork
         </button>

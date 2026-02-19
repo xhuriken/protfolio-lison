@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaTimes, FaRegClock, FaCalendarAlt, FaPalette } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import Scotch from './Scotch';
 
 export default function ArtworkModal({ artworks }) {
   // Get the ID from the URL
@@ -84,23 +85,33 @@ export default function ArtworkModal({ artworks }) {
             {/* Only show Title if not empty */}
             {artwork.title && <h2 className="text-3xl font-bold text-primary mb-4 pr-8">{artwork.title}</h2>}
             
-            <div className="flex flex-wrap gap-2 mb-6">
-              {/* Conditional badges */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              {/* Conditional badges with the cute Scotch component */}
+              
               {artwork.timeSpent && (
-                <span className="px-3 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded-full flex items-center gap-1">
-                  <FaRegClock /> {artwork.timeSpent}
-                </span>
+                <Scotch 
+                  icon={FaRegClock} 
+                  text={artwork.timeSpent} 
+                  colorClass="bg-secondary/20 text-secondary" 
+                />
               )}
+              
               {artwork.date && (
-                <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full flex items-center gap-1">
-                  <FaCalendarAlt /> {artwork.date}
-                </span>
+                <Scotch 
+                  icon={FaCalendarAlt} 
+                  text={artwork.date} 
+                  colorClass="bg-accent/20 text-accent" 
+                />
               )}
+              
               {artwork.category && (
-                <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full flex items-center gap-1">
-                  <FaPalette /> {artwork.category}
-                </span>
+                <Scotch 
+                  icon={FaPalette} 
+                  text={artwork.category} 
+                  colorClass="bg-primary/10 text-primary" 
+                />
               )}
+              
             </div>
 
             {/* Only show Description if not empty */}

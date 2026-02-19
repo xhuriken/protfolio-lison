@@ -62,20 +62,20 @@ export default function HeroForm({ heroData, setHeroData }) {
   };
 
   return (
-    <section className="bg-card p-6 md:p-8 rounded-[32px] shadow-sm mb-8">
+    <section className="bg-card/60 p-6 md:p-8 rounded-[32px] shadow-sm mb-8">
       <div className="flex items-center gap-2 mb-6">
         <FaUserEdit className="text-secondary text-xl" />
-        <h2 className="text-2xl font-bold text-primary">Edit Profile (Hero)</h2>
+        <h2 className="text-2xl font-bold text-primary">Edit Profile</h2>
       </div>
 
       <form onSubmit={handleSave} className="flex flex-col gap-5">
         <div>
-          <label className="block text-sm font-bold text-text-sub mb-1">Artist Name</label>
+          <label className="block text-sm font-bold text-text-sub mb-1">Your Fucking Name yeah !</label>
           <input type="text" name="name" value={heroData.name} onChange={handleChange} className="w-full p-3 bg-page text-text-main rounded-xl border-none outline-none focus:ring-2 focus:ring-secondary/50 transition-all" />
         </div>
 
         <div>
-          <label className="block text-sm font-bold text-text-sub mb-1">Description</label>
+          <label className="block text-sm font-bold text-text-sub mb-1">Biography &#60;3</label>
           <textarea name="description" value={heroData.description} onChange={handleChange} rows="3" className="w-full p-3 bg-page text-text-main rounded-xl border-none outline-none focus:ring-2 focus:ring-secondary/50 transition-all resize-none" />
         </div>
 

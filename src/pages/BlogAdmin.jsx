@@ -27,7 +27,7 @@ export default function BlogAdmin({ heroData, setHeroData, artworks, setArtworks
   if (!isAuthenticated) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center p-4">
-        <form onSubmit={handleLogin} className="bg-card p-8 rounded-[32px] shadow-2xl w-full max-w-md text-center">
+        <form onSubmit={handleLogin} className="bg-card/60 p-8 rounded-[32px] shadow-2xl w-full max-w-md text-center">
           <h2 className="text-3xl font-bold text-primary mb-6">Secret Access</h2>
           <input 
             type="password" 
@@ -83,8 +83,8 @@ export default function BlogAdmin({ heroData, setHeroData, artworks, setArtworks
       </div>
 
       {/* Footer Info */}
-      <footer className="mt-12 text-center border-t border-black/5 pt-8">
-        <p className="text-xs text-text-sub uppercase tracking-widest opacity-50">
+      <footer className="mt-12 text-center border-t border-black/6 pt-8">
+        <p className="text-xs text-text-sub uppercase tracking-widest opacity-70">
           Attention meuf si quelqu'un a accès à cette page, t'es foutu
         </p>
       </footer>

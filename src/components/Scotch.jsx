@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 export default function Scotch({ icon: Icon, text, colorClass }) {
   
-  // Main label rotation: between -4 and +4 degrees
-  const [rotation] = useState(() => (Math.random() * 8) - 4);
+  // Main label rotation: between -8 and +8 degrees
+  const [rotation] = useState(() => (Math.random() * 16) - 8);
   
   // Tape rotation: between -6 and +6 degrees for extra messiness!
-  const [tapeRotation] = useState(() => (Math.random() * 12) - 6);
+  const [tapeRotation] = useState(() => (Math.random() * 16) - 10);
 
   return (
     <span 
-      className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-sm shadow-sm hover:scale-110 hover:shadow-md transition-all z-10 hover:z-20 cursor-default ${colorClass}`}
+      className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-sm shadow-sm hover:scale-110 hover:shadow-md transition-all z-10 hover:z-20 cursor-pointer  ${colorClass}`}
       // Apply the label rotation
       style={{ transform: `rotate(${rotation}deg)` }}
     >
