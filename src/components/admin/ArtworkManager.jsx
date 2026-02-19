@@ -1,9 +1,9 @@
 // src/components/admin/ArtworkManager.jsx
-import { useState } from 'react';
-import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
+import { useState, useRef } from 'react';
+import { FaPlus, FaEdit, FaTrash, FaGripVertical } from 'react-icons/fa';
 import ArtworkFormModal from './ArtworkFormModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
-import { deleteArtworkAPI } from '../../services/api';
+import { deleteArtworkAPI, reorderArtworksAPI } from '../../services/api'; // Add reorder API
 import toast from 'react-hot-toast';
 
 export default function ArtworkManager({ artworks, setArtworks }) {
@@ -13,25 +13,25 @@ export default function ArtworkManager({ artworks, setArtworks }) {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [artworkToDelete, setArtworkToDelete] = useState(null);
 
-  // Open Form for Adding
+  // --- DRAG AND DROP REFS ---
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
   const handleAddNew = () => {
     setArtworkToEdit(null);
     setIsFormOpen(true);
   };
 
-  // Open Form for Editing
   const handleEdit = (artwork) => {
     setArtworkToEdit(artwork);
     setIsFormOpen(true);
   };
 
-  // Open Delete Confirmation
   const handleDeleteClick = (artwork) => {
     setArtworkToDelete(artwork);
     setIsDeleteOpen(true);
   };
 
-  // Process Deletion (When user clicks "Shrek je t'aime")
   const confirmDelete = async () => {
     setIsDeleteOpen(false);
     const toastId = toast.loading('Deleting...');
@@ -40,12 +40,41 @@ export default function ArtworkManager({ artworks, setArtworks }) {
       const result = await deleteArtworkAPI(artworkToDelete.id);
       if (result.success) {
         toast.success('Artwork deleted!', { id: toastId });
-        setArtworks(result.data); // Update gallery
+        setArtworks(result.data);
       } else {
         toast.error('Error: ' + result.message, { id: toastId });
       }
     } catch (error) {
       toast.error('Server error!', { id: toastId });
+    }
+  };
+
+  // --- DRAG AND DROP  ---
+  const handleSort = async () => {
+    // Clone the current array
+    const _artworks = [...artworks];
+    
+    // Remove the dragged item from its original position
+    const draggedItemContent = _artworks.splice(dragItem.current, 1)[0];
+    
+    // Insert it into the new position
+    _artworks.splice(dragOverItem.current, 0, draggedItemContent);
+
+    // Reset refs
+    dragItem.current = null;
+    dragOverItem.current = null;
+
+    // Update UI immediately so it feels snappy
+    setArtworks(_artworks);
+
+    // Save the new array order to the server silently
+    try {
+      const result = await reorderArtworksAPI(_artworks);
+      if (!result.success) {
+        toast.error("Failed to save the new order on server");
+      }
+    } catch (error) {
+      toast.error("Server error while reordering");
     }
   };
 
@@ -59,11 +88,26 @@ export default function ArtworkManager({ artworks, setArtworks }) {
       </div>
 
       {/* List of existing artworks */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {artworks.map(art => (
-          <div key={art.id} className="flex items-center justify-between p-4 bg-accent/50 rounded-2xl">
+      <div className="flex flex-col gap-4"> 
+        {/* Changed grid to flex-col for better drag & drop visual flow */}
+        {artworks.map((art, index) => (
+          <div 
+            key={art.id} 
+            // Drag and Drop Events
+            draggable
+            onDragStart={(e) => (dragItem.current = index)}
+            onDragEnter={(e) => (dragOverItem.current = index)}
+            onDragEnd={handleSort}
+            onDragOver={(e) => e.preventDefault()} // Necessary to allow dropping
+            className="flex items-center justify-between p-4 bg-accent/50 rounded-2xl cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow"
+          >
             <div className="flex items-center gap-4">
-              <img src={art.thumbnailUrl || art.imageUrl} alt={art.title} className="w-16 h-16 object-cover rounded-xl" />
+              {/* Drag Handle Icon */}
+              <div className="text-text-sub/50 hover:text-text-main transition-colors px-2">
+                <FaGripVertical className="text-xl" />
+              </div>
+              
+              <img src={`${import.meta.env.BASE_URL}${art.thumbnailUrl || art.imageUrl}`} alt={art.title} className="w-16 h-16 object-cover rounded-xl pointer-events-none" />
               <div>
                 <h3 className="font-bold text-text-main">{art.title}</h3>
                 <p className="text-xs text-text-sub">{art.date}</p>
@@ -78,7 +122,7 @@ export default function ArtworkManager({ artworks, setArtworks }) {
         ))}
       </div>
 
-      {/* Modals are placed here but invisible until triggered */}
+      {/* Modals */}
       <ArtworkFormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} artworkToEdit={artworkToEdit} setArtworks={setArtworks} />
       <DeleteConfirmModal isOpen={isDeleteOpen} onClose={() => setIsDeleteOpen(false)} onConfirm={confirmDelete} />
     </section>

@@ -66,7 +66,7 @@ export default function ArtworkModal({ artworks }) {
             ${isVertical ? 'w-full md:w-auto' : 'w-full'}
           `}>
             <img 
-              src={artwork.imageUrl} 
+              src={`${import.meta.env.BASE_URL}${artwork.imageUrl}`}
               alt={artwork.title} 
               className={`block object-contain
                 ${isVertical 

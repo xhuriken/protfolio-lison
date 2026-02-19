@@ -65,10 +65,10 @@ function App() {
         // We add '?t=...' to prevent the browser from keeping the old JSON in cache
         const cacheBuster = new Date().getTime();
         
-        const heroRes = await fetch(`/data/hero.json?t=${cacheBuster}`);
+        const heroRes = await fetch(`data/hero.json?t=${cacheBuster}`);
         const heroJson = await heroRes.json();
         
-        const artRes = await fetch(`/data/artworks.json?t=${cacheBuster}`);
+        const artRes = await fetch(`data/artworks.json?t=${cacheBuster}`);
         const artJson = await artRes.json();
 
         setHeroData(heroJson);
@@ -109,7 +109,7 @@ function App() {
         }} 
       />
 
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           {/* We pass the fetched data to Home */}
           <Route path="/" element={<Home heroData={heroData} artworks={artworks} />}>

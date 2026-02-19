@@ -15,5 +15,5 @@ export default defineConfig({
       "~": path.resolve(__dirname, "./src"),
     },
   },
-  // base: '/portfolio/' // A CHANGER EN FONCTION DE CE QUE LISON VEUX
+  base: '/lison/' // A CHANGER EN FONCTION DE CE QUE LISON VEUX
 })

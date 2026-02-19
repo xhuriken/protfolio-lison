@@ -4,7 +4,7 @@ import { cn } from "~/lib/utils"
 export function Meteors({
   className,
   children,
-  count = 15,
+  count = 50,
   angle = 225,
   color = "gray",
   tailColor = "#61a3d15b"

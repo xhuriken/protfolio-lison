@@ -2,7 +2,12 @@
 
 // The base URL of our PHP server (Laragon)
 // Easy to change here when going to production!
-const API_BASE_URL = 'http://localhost/public/api/';
+// const API_BASE_URL = 'https://honvault.com/lison/api/';
+// const API_BASE_URL = 'https://localhost/public/api/';
+
+const API_BASE_URL = import.meta.env.DEV 
+  ? 'http://localhost/public/api/' 
+  : `${import.meta.env.BASE_URL}api/`;
 
 // Function to save Hero data
 export const saveHeroAPI = async (formData) => {
@@ -59,4 +64,18 @@ export const saveThemeAPI = async (themeName) => {
     body: JSON.stringify({ theme: themeName }),
   });
   return await response.json();
+};
+
+// Function to save the new order of artworks
+export const reorderArtworksAPI = async (newArtworksArray) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}reorder_artworks.php`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ artworks: newArtworksArray }),
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error("Cannot connect to PHP server");
+  }
 };

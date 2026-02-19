@@ -27,7 +27,7 @@ export default function Hero({ data }) {
         {/* Profile Image */}
         <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 scale-110 hover:scale-115 transition-all">
           <img 
-            src={data.imageUrl} 
+            src={`${import.meta.env.BASE_URL}${data.imageUrl}`}
             alt="Profile" 
             className="w-full h-full object-cover rounded-4xl border-4 border-accent/20 shadow-md"
           />
@@ -74,8 +74,8 @@ export default function Hero({ data }) {
       <div 
         className="absolute bottom-1 right-6 w-24 md:w-36 h-24 md:h-36 -rotate-12 bg-accent/30"
         style={{
-          maskImage: 'url(/hero.svg)',
-          WebkitMaskImage: 'url(/hero.svg)',
+          maskImage: 'url(hero.svg)',
+          WebkitMaskImage: 'url(hero.svg)',
           maskRepeat: 'no-repeat',
           maskSize: 'contain'
         }}

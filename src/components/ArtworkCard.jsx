@@ -16,7 +16,7 @@ export default function ArtworkCard({ artwork }) {
         <img 
           // We use thumbnailUrl if it exists (for converted BMPs), otherwise imageUrl
           // We use thumbnailUrl if it exists (for converted BMPs), otherwise imageUrl
-          src={artwork.thumbnailUrl || artwork.imageUrl} 
+          src={`${import.meta.env.BASE_URL}${artwork.thumbnailUrl || artwork.imageUrl}`}
           alt={artwork.title}
           className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
         />
