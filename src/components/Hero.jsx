@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // We import FontAwesome icons from react-icons
 import { FaEnvelope, FaPhone, FaCheck, FaRegCopy } from 'react-icons/fa';
-
+import Meteors from './ui/meteors';
 export default function Hero({ data }) {
   // State to know which button was copied ('email', 'phone', or null)
   const [copiedItem, setCopiedItem] = useState(null);
@@ -20,51 +20,54 @@ export default function Hero({ data }) {
  if (!data) return null;
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 py-12 px-4 md:px-8 bg-card rounded-[32px] shadow-sm mb-12">
-      
-      {/* Profile Image */}
-      <div className="w-32 h-32 md:w-48 md:h-48 shrink-0">
-        <img 
-          src={data.imageUrl} 
-          alt="Profile" 
-          className="w-full h-full object-cover rounded-full border-4 border-accent/20 shadow-md"
-        />
-      </div>
+    <div className="relative isolate flex flex-col md:flex-row items-center gap-8 py-12 px-4 md:px-8 bg-card rounded-[32px] shadow-sm mb-12">
+      <Meteors></Meteors>
 
-      {/* Text Content */}
-      <div className="flex-1 text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-          {data.name}
-        </h1>
-        <p className="text-lg text-text-sub mb-6 max-w-2xl whitespace-pre-line">
-          {data.description}
-        </p>
+      <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 w-full">
+        {/* Profile Image */}
+        <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 scale-110 hover:scale-115 transition-all">
+          <img 
+            src={data.imageUrl} 
+            alt="Profile" 
+            className="w-full h-full object-cover rounded-full border-4 border-accent/20 shadow-md"
+          />
+        </div>
 
-        {/* Contact Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          
-          <button 
-            onClick={() => handleCopy(data.email, 'email')}
-            className="group flex items-center justify-between gap-3 px-5 py-3 bg-secondary/10 hover:bg-secondary/20 text-secondary rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
-          >
-            <div className="flex items-center gap-2">
-              <FaEnvelope />
-              <span className="font-semibold">{data.email}</span>
-            </div>
-            {copiedItem === 'email' ? <FaCheck className="text-green-500 scale-110 transition-transform" /> : <FaRegCopy className="opacity-50 group-hover:opacity-100 transition-opacity" />}
-          </button>
+        {/* Text Content */}
+        <div className="flex-1 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            {data.name}
+          </h1>
+          <p className="text-lg text-text-sub mb-6 max-w-2xl whitespace-pre-line">
+            {data.description}
+          </p>
 
-          <button 
-            onClick={() => handleCopy(data.phone, 'phone')}
-            className="group flex items-center justify-between gap-3 px-5 py-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
-          >
-            <div className="flex items-center gap-2">
-              <FaPhone />
-              <span className="font-semibold">{data.phone}</span>
-            </div>
-            {copiedItem === 'phone' ? <FaCheck className="text-green-500 scale-110 transition-transform" /> : <FaRegCopy className="opacity-50 group-hover:opacity-100 transition-opacity" />}
-          </button>
+          {/* Contact Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            
+            <button 
+              onClick={() => handleCopy(data.email, 'email')}
+              className="group flex items-center justify-between gap-3 px-5 py-3 bg-secondary/10 hover:bg-secondary/20 text-secondary rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <FaEnvelope />
+                <span className="font-semibold">{data.email}</span>
+              </div>
+              {copiedItem === 'email' ? <FaCheck className="text-green-500 scale-110 transition-transform" /> : <FaRegCopy className="opacity-50 group-hover:opacity-100 transition-opacity" />}
+            </button>
 
+            <button 
+              onClick={() => handleCopy(data.phone, 'phone')}
+              className="group flex items-center justify-between gap-3 px-5 py-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-2xl transition-all duration-300 w-full sm:w-auto cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <FaPhone />
+                <span className="font-semibold">{data.phone}</span>
+              </div>
+              {copiedItem === 'phone' ? <FaCheck className="text-green-500 scale-110 transition-transform" /> : <FaRegCopy className="opacity-50 group-hover:opacity-100 transition-opacity" />}
+            </button>
+
+          </div>
         </div>
       </div>
     </div>

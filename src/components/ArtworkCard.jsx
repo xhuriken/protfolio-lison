@@ -1,5 +1,6 @@
 import { FaRegClock, FaCalendarAlt, FaPalette } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Scotch from './Scotch';
 
 export default function ArtworkCard({ artwork }) {
   return (
@@ -29,25 +30,33 @@ export default function ArtworkCard({ artwork }) {
         {/* Only show description if it exists */}
         {artwork.description && <p className="text-sm text-text-sub mb-4">{artwork.description}</p>}
         
-        <div className="flex flex-wrap gap-2">
-          {/* Conditional rendering for each pin */}
+        <div className="flex flex-wrap gap-3 mt-3">
+          
+          {/* Conditional rendering for each pin using the new Scotch component */}
           {artwork.timeSpent && (
-            <span className="px-3 py-1 bg-secondary/20 text-secondary text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
-              <FaRegClock /> {artwork.timeSpent}
-            </span>
+            <Scotch 
+              icon={FaRegClock} 
+              text={artwork.timeSpent} 
+              colorClass="bg-secondary/20 text-secondary" 
+            />
           )}
 
           {artwork.date && (
-            <span className="px-3 py-1 bg-accent/20 text-accent text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
-              <FaCalendarAlt /> {artwork.date}
-            </span>
+            <Scotch 
+              icon={FaCalendarAlt} 
+              text={artwork.date} 
+              colorClass="bg-accent/20 text-accent" 
+            />
           )}
 
           {artwork.category && (
-            <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
-              <FaPalette /> {artwork.category}
-            </span>
+            <Scotch 
+              icon={FaPalette} 
+              text={artwork.category} 
+              colorClass="bg-primary/10 text-primary" 
+            />
           )}
+
         </div>
       </div>
 

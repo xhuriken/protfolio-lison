@@ -30,7 +30,7 @@ function Home({ heroData, artworks }) {
       >
         <FaUserShield className="text-xl" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold text-xs uppercase tracking-widest">
-          Admin
+          Edit&nbsp;me
         </span>
       </Link>
     </div>

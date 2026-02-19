@@ -1,5 +1,15 @@
 [
     {
+        "id": 2,
+        "title": "test",
+        "description": "test",
+        "timeSpent": "test",
+        "date": "tes",
+        "category": "test",
+        "imageUrl": "\/artwork_2_1771519547.jpg",
+        "thumbnailUrl": "\/artwork_2_1771519547.jpg"
+    },
+    {
         "id": 1,
         "title": "",
         "description": "",

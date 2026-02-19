@@ -61,7 +61,7 @@ export default function ArtworkManager({ artworks, setArtworks }) {
       {/* List of existing artworks */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {artworks.map(art => (
-          <div key={art.id} className="flex items-center justify-between p-4 bg-page rounded-2xl">
+          <div key={art.id} className="flex items-center justify-between p-4 bg-accent/50 rounded-2xl">
             <div className="flex items-center gap-4">
               <img src={art.thumbnailUrl || art.imageUrl} alt={art.title} className="w-16 h-16 object-cover rounded-xl" />
               <div>
@@ -71,7 +71,7 @@ export default function ArtworkManager({ artworks, setArtworks }) {
             </div>
             
             <div className="flex gap-2">
-              <button onClick={() => handleEdit(art)} className="cursor-pointer p-3 bg-accent/20 text-accent rounded-xl hover:scale-110 transition-transform"><FaEdit /></button>
+              <button onClick={() => handleEdit(art)} className="cursor-pointer p-3 bg-text-sub/20 text-text-sub rounded-xl hover:scale-110 transition-transform"><FaEdit /></button>
               <button onClick={() => handleDeleteClick(art)} className="cursor-pointer p-3 bg-red-100 text-red-600 rounded-xl hover:scale-110 transition-transform"><FaTrash /></button>
             </div>
           </div>
