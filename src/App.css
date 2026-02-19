@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-text-main: var(--text-main);
+  --color-text-sub: var(--text-sub);
+  
+  --font-cute: "Quicksand", sans-serif;
+}
+
+/* Moss & Forest */
+.theme-forest {
+--bg: #F7F4D5;         /* Beige */
+--card: #ffffff;
+--primary: #0A3323;    /* Dark green */
+--secondary: #839958;  /* Moss green */
+--accent: #D3968C;     /* Rosy brown */
+--text-main: #105666;  /* Midnight green */
+--text-sub: #436d40;
+}
+
+/* Pastel Blossom */
+.theme-blossom {
+--bg: #F4DFE6;         /* Lavender Blush */
+--card: #ffffff;
+--primary: #E0A3BB;    /* Amaranth Pink */
+--secondary: #C5CC82;  /* Citron */
+--accent: #D6E6E7;     /* Azure */
+--text-main: #7a4a5f;
+--text-sub: #97A13B;   /* Moss Green v2 */
+}
+
+/* Sakura Choco */
+.theme-sakura {
+--bg: #F2CFCB;         /* Misty Rose */
+--card: #ffffff;
+--primary: #443025;    /* Dark Chocolate */
+--secondary: #EC9C9D;  /* Sakura */
+--accent: #7F5836;     /* Aloewood */
+--text-main: #443025;
+--text-sub: #AA7F66;   /* Milk Tea */
+}
+
+
+/* Application globale */
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-cute);
+}
