@@ -96,7 +96,7 @@ function App() {
               <Link to="/" className="fixed top-6 left-6 px-4 py-2 bg-card text-primary rounded-xl shadow-md font-bold text-sm hover:scale-105 transition-transform z-50">
                 ← Back to Gallery
               </Link>
-              <BlogAdmin heroData={heroData} setHeroData={setHeroData} />
+              <BlogAdmin heroData={heroData} setHeroData={setHeroData} artworks={artworks} setArtworks={setArtworks} />
             </div>
           } />
         </Routes>

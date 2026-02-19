@@ -1,39 +1,63 @@
 // src/pages/BlogAdmin.jsx
 import ThemeSwitcher from '../components/admin/ThemeSwitcher';
 import HeroForm from '../components/admin/HeroForm';
-// We will import ArtworkManager here later!
+import ArtworkManager from '../components/admin/ArtworkManager'; // Import our new manager
 
-export default function BlogAdmin({ heroData, setHeroData }) {
+/**
+ * BlogAdmin - Main Dashboard for the portfolio
+ * This page assembles the different modules: Theme, Profile, and Artworks.
+ */
+export default function BlogAdmin({ heroData, setHeroData, artworks, setArtworks }) {
   
-  // Wait for data to load before displaying forms
-  if (!heroData) {
-    return <div className="text-center p-10 font-bold text-primary">Loading Admin Data...</div>;
+  // Safety check: wait for data to be fetched from PHP before rendering
+  if (!heroData || !artworks) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-primary font-bold animate-pulse text-lg">Loading Admin Panels...</p>
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-4xl mx-auto pb-20">
+    <div className="max-w-4xl mx-auto pb-24">
       
-      {/* Header */}
-      <header className="mb-10 text-center">
-        <h1 className="text-4xl font-bold text-primary">Admin Dashboard</h1>
-        <p className="text-text-sub mt-2">Manage your portfolio, themes, and artworks.</p>
+      {/* 1. Header Section */}
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">Girl Power Mode</h1>
+        <p className="text-text-sub text-lg italic">
+          Welcome back! Here you can customize your universe.
+        </p>
       </header>
 
-      {/* 1. Theme Module */}
-      <ThemeSwitcher />
+      {/* 2. Theme Module
+          Handles color switching for the entire app.
+      */}
+      <div className="mb-10">
+        <ThemeSwitcher />
+      </div>
 
-      {/* 2. Hero Profile Module */}
-      <HeroForm heroData={heroData} setHeroData={setHeroData} />
+      {/* 3. Hero Profile Module
+          Handles name, description, and profile picture updates.
+      */}
+      <div className="mb-10">
+        <HeroForm heroData={heroData} setHeroData={setHeroData} />
+      </div>
 
-      {/* 3. Artworks Module (Coming Next!) */}
-      <section className="bg-card p-6 md:p-8 rounded-[32px] shadow-sm">
-        <h2 className="text-2xl font-bold text-primary mb-6 border-b border-black/5 pb-4">
-          Manage Artworks (Next Step)
-        </h2>
-        <div className="text-center p-10 bg-page rounded-2xl border-2 border-dashed border-secondary/30">
-          <p className="text-text-sub font-bold">Here we will add the form to upload new drawings, edit them, and delete them!</p>
-        </div>
-      </section>
+      {/* 4. Artworks Management Module
+          Handles Adding, Editing, and Deleting drawings.
+          It also manages the .bmp to .jpg conversion via PHP.
+      */}
+      <div>
+        <ArtworkManager artworks={artworks} setArtworks={setArtworks} />
+      </div>
+
+      {/* Footer Info */}
+      <footer className="mt-12 text-center border-t border-black/5 pt-8">
+        <p className="text-xs text-text-sub uppercase tracking-widest opacity-50">
+          Attention meuf si quelqu'un a accès à cette page, t'es foutu
+        </p>
+      </footer>
 
     </div>
   );

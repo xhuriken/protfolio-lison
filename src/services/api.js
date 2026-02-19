@@ -19,4 +19,28 @@ export const saveHeroAPI = async (formData) => {
   }
 };
 
-// We will add saveArtworkAPI and deleteArtworkAPI here later!
+export const saveArtworkAPI = async (formData) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}save_artwork.php`, {
+      method: 'POST',
+      body: formData,
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error("Cannot connect to PHP server");
+  }
+};
+
+// Function to delete an Artwork
+export const deleteArtworkAPI = async (id) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}delete_artwork.php`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }), // We send the ID as JSON
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error("Cannot connect to PHP server");
+  }
+};

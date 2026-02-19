@@ -1,101 +1,112 @@
 [
-  {
-    "id": 1,
-    "title": "Sakura Bloom",
-    "description": "A quick sketch to test the new pastel colors.",
-    "imageUrl": "https://picsum.photos/400/600",
-    "timeSpent": "2h 30m",
-    "date": "2026-02-18",
-    "category": "Digital"
-  },
-  {
-    "id": 2,
-    "title": "Forest Spirit",
-    "description": "Landscape study. I love how the green turns out.",
-    "imageUrl": "https://picsum.photos/800/400",
-    "timeSpent": "5h 15m",
-    "date": "2026-02-10",
-    "category": "Watercolor"
-  },
-  {
-    "id": 3,
-    "title": "Cute Shrek",
-    "description": "Just a square portrait of my favorite guy.",
-    "imageUrl": "https://picsum.photos/500/500",
-    "timeSpent": "1h 00m",
-    "date": "2026-01-25",
-    "category": "Sketch"
-  },
-  {
-    "id": 1,
-    "title": "Sakura Bloom",
-    "description": "A quick sketch to test the new pastel colors.",
-    "imageUrl": "https://picsum.photos/400/600",
-    "timeSpent": "2h 30m",
-    "date": "2026-02-18",
-    "category": "Digital"
-  },
-  {
-    "id": 2,
-    "title": "Forest Spirit",
-    "description": "Landscape study. I love how the green turns out.",
-    "imageUrl": "https://picsum.photos/800/400",
-    "timeSpent": "5h 15m",
-    "date": "2026-02-10",
-    "category": "Watercolor"
-  },
-  {
-    "id": 3,
-    "title": "Cute Shrek",
-    "description": "Just a square portrait of my favorite guy.",
-    "imageUrl": "https://picsum.photos/500/500",
-    "timeSpent": "1h 00m",
-    "date": "2026-01-25",
-    "category": "Sketch"
-  },
-  {
-    "id": 1,
-    "title": "Sakura Bloom",
-    "description": "A quick sketch to test the new pastel colors.",
-    "imageUrl": "https://picsum.photos/400/600",
-    "timeSpent": "2h 30m",
-    "date": "2026-02-18",
-    "category": "Digital"
-  },
-  {
-    "id": 2,
-    "title": "Forest Spirit",
-    "description": "Landscape study. I love how the green turns out.",
-    "imageUrl": "https://picsum.photos/800/400",
-    "timeSpent": "5h 15m",
-    "date": "2026-02-10",
-    "category": "Watercolor"
-  },
-  {
-    "id": 3,
-    "title": "Cute Shrek",
-    "description": "Just a square portrait of my favorite guy.",
-    "imageUrl": "https://picsum.photos/500/500",
-    "timeSpent": "1h 00m",
-    "date": "2026-01-25",
-    "category": "Sketch"
-  },
-  {
-    "id": 1,
-    "title": "Sakura Bloom",
-    "description": "A quick sketch to test the new pastel colors.",
-    "imageUrl": "https://picsum.photos/400/600",
-    "timeSpent": "2h 30m",
-    "date": "2026-02-18",
-    "category": "Digital"
-  },
-  {
-    "id": 2,
-    "title": "Forest Spirit",
-    "description": "Landscape study. I love how the green turns out.",
-    "imageUrl": "https://picsum.photos/800/400",
-    "timeSpent": "5h 15m",
-    "date": "2026-02-10",
-    "category": "Watercolor"
-  }
+    {
+        "id": 6,
+        "title": "test",
+        "description": "setset",
+        "timeSpent": "setset",
+        "date": "2026-02-10",
+        "category": "setse",
+        "imageUrl": "\/artwork_6_1771513346.jpg",
+        "thumbnailUrl": "\/artwork_6_1771513346.jpg"
+    },
+    {
+        "id": 5,
+        "title": "setse",
+        "description": "tset",
+        "timeSpent": "setsset",
+        "date": "2026-02-05",
+        "category": "setse",
+        "imageUrl": "\/artwork_5_1771511553.jpg",
+        "thumbnailUrl": "\/artwork_5_1771511553.jpg"
+    },
+    {
+        "id": 4,
+        "title": "tset",
+        "description": "setset",
+        "timeSpent": "setse",
+        "date": "2026-02-11",
+        "category": "setset",
+        "imageUrl": "\/artwork_4_1771511537.bmp",
+        "thumbnailUrl": "\/artwork_4_1771511538_thumb.jpg"
+    },
+    {
+        "id": 3,
+        "title": "rtu",
+        "description": "fuftu",
+        "timeSpent": "ftuftu",
+        "date": "2026-02-05",
+        "category": "ftuftu",
+        "imageUrl": "\/artwork_3_1771511440.png",
+        "thumbnailUrl": "\/artwork_3_1771511440.png"
+    },
+    {
+        "id": 4,
+        "title": "tset",
+        "description": "setset",
+        "timeSpent": "setse",
+        "date": "2026-02-11",
+        "category": "setset",
+        "imageUrl": "\/artwork_4_1771511537.bmp",
+        "thumbnailUrl": "\/artwork_4_1771511538_thumb.jpg"
+    },
+    {
+        "id": 3,
+        "title": "rtu",
+        "description": "fuftu",
+        "timeSpent": "ftuftu",
+        "date": "2026-02-05",
+        "category": "ftuftu",
+        "imageUrl": "\/artwork_3_1771511440.png",
+        "thumbnailUrl": "\/artwork_3_1771511440.png"
+    },
+    {
+        "id": 5,
+        "title": "setse",
+        "description": "tset",
+        "timeSpent": "setsset",
+        "date": "2026-02-05",
+        "category": "setse",
+        "imageUrl": "\/artwork_5_1771511553.jpg",
+        "thumbnailUrl": "\/artwork_5_1771511553.jpg"
+    },
+    {
+        "id": 4,
+        "title": "tset",
+        "description": "setset",
+        "timeSpent": "setse",
+        "date": "2026-02-11",
+        "category": "setset",
+        "imageUrl": "\/artwork_4_1771511537.bmp",
+        "thumbnailUrl": "\/artwork_4_1771511538_thumb.jpg"
+    },
+    {
+        "id": 3,
+        "title": "rtu",
+        "description": "fuftu",
+        "timeSpent": "ftuftu",
+        "date": "2026-02-05",
+        "category": "ftuftu",
+        "imageUrl": "\/artwork_3_1771511440.png",
+        "thumbnailUrl": "\/artwork_3_1771511440.png"
+    },
+    {
+        "id": 4,
+        "title": "tset",
+        "description": "setset",
+        "timeSpent": "setse",
+        "date": "2026-02-11",
+        "category": "setset",
+        "imageUrl": "\/artwork_4_1771511537.bmp",
+        "thumbnailUrl": "\/artwork_4_1771511538_thumb.jpg"
+    },
+    {
+        "id": 3,
+        "title": "rtu",
+        "description": "fuftu",
+        "timeSpent": "ftuftu",
+        "date": "2026-02-05",
+        "category": "ftuftu",
+        "imageUrl": "\/artwork_3_1771511440.png",
+        "thumbnailUrl": "\/artwork_3_1771511440.png"
+    }
 ]
