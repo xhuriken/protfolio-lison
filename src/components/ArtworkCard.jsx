@@ -23,20 +23,31 @@ export default function ArtworkCard({ artwork }) {
       
       {/* Content Section */}
       <div className="p-3 mt-2">
-        <h3 className="text-xl font-bold text-primary mb-1">{artwork.title}</h3>
-        <p className="text-sm text-textsub mb-4">{artwork.description}</p>
+        {/* Only show title if it exists */}
+        {artwork.title && <h3 className="text-xl font-bold text-primary mb-1">{artwork.title}</h3>}
         
-        {/* Cute Pins using FontAwesome */}
+        {/* Only show description if it exists */}
+        {artwork.description && <p className="text-sm text-text-sub mb-4">{artwork.description}</p>}
+        
         <div className="flex flex-wrap gap-2">
-          <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full flex items-center gap-1">
-            <FaRegClock /> {artwork.timeSpent}
-          </span>
-          <span className="px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full flex items-center gap-1">
-            <FaCalendarAlt /> {artwork.date}
-          </span>
-          <span className="px-3 py-1 bg-primary/5 text-primary text-xs font-bold rounded-full flex items-center gap-1">
-            <FaPalette /> {artwork.category}
-          </span>
+          {/* Conditional rendering for each pin */}
+          {artwork.timeSpent && (
+            <span className="px-3 py-1 bg-secondary/20 text-secondary text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
+              <FaRegClock /> {artwork.timeSpent}
+            </span>
+          )}
+
+          {artwork.date && (
+            <span className="px-3 py-1 bg-accent/20 text-accent text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
+              <FaCalendarAlt /> {artwork.date}
+            </span>
+          )}
+
+          {artwork.category && (
+            <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
+              <FaPalette /> {artwork.category}
+            </span>
+          )}
         </div>
       </div>
 

@@ -1,35 +1,48 @@
 // src/components/admin/ThemeSwitcher.jsx
-import { useEffect } from 'react';
 import { FaPalette } from 'react-icons/fa';
+import { saveThemeAPI } from '../../services/api';
+import toast from 'react-hot-toast';
 
 export default function ThemeSwitcher() {
   
-  // Load saved theme on component mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme) {
-      document.body.className = savedTheme;
-    }
-  }, []);
+  const themes = [
+    { id: 'theme-sakura', label: 'Sakura Choco', colors: 'bg-[#F2CFCB] text-[#443025]' },
+    { id: 'theme-forest', label: 'Forest Moss', colors: 'bg-[#F7F4D5] text-[#0A3323]' },
+    { id: 'theme-blossom', label: 'Pastel Blossom', colors: 'bg-[#F4DFE6] text-[#7a4a5f]' }
+  ];
 
-  const changeTheme = (themeClass) => {
-    document.body.className = themeClass;
-    // Save to browser memory
-    localStorage.setItem('portfolio-theme', themeClass);
+  const changeTheme = async (t) => {
+    // 1. Immediate visual feedback
+    document.body.className = t.id;
+    
+    // 2. Save to server
+    try {
+      const result = await saveThemeAPI(t.id);
+      if (result.success) {
+        toast.success(`Theme updated to ${t.label}!`);
+      }
+    } catch (error) {
+      toast.error("Failed to save theme on server");
+    }
   };
 
-  
   return (
     <section className="bg-card p-6 rounded-[32px] shadow-sm mb-8">
       <div className="flex items-center gap-2 mb-4">
         <FaPalette className="text-accent text-xl" />
-        <h2 className="text-2xl font-bold text-primary">Change Theme</h2>
+        <h2 className="text-2xl font-bold text-primary">Theme Switcher !</h2>
       </div>
       
       <div className="flex flex-wrap gap-4">
-        <button onClick={() => changeTheme('theme-sakura')} className="px-6 py-3 rounded-2xl font-bold bg-[#F2CFCB] text-[#443025] hover:scale-105 transition-transform cursor-pointer">Sakura Choco</button>
-        <button onClick={() => changeTheme('theme-forest')} className="px-6 py-3 rounded-2xl font-bold bg-[#F7F4D5] text-[#0A3323] hover:scale-105 transition-transform cursor-pointer">Forest Moss</button>
-        <button onClick={() => changeTheme('theme-blossom')} className="px-6 py-3 rounded-2xl font-bold bg-[#F4DFE6] text-[#7a4a5f] hover:scale-105 transition-transform cursor-pointer">Pastel Blossom</button>
+        {themes.map(t => (
+          <button 
+            key={t.id}
+            onClick={() => changeTheme(t)} 
+            className={`px-6 py-3 rounded-2xl font-bold transition-transform hover:scale-105 cursor-pointer ${t.colors}`}
+          >
+            {t.label}
+          </button>
+        ))}
       </div>
     </section>
   );

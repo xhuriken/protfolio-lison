@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-page: #F2CFCB;
@@ -8,10 +12,9 @@
   --color-accent: #7F5836;
   --color-text-main: #443025;
   --color-text-sub: #AA7F66;
-  
+
   --font-cute: "Quicksand", sans-serif;
 }
-
 
 .theme-sakura {
   --color-page: #F2CFCB;

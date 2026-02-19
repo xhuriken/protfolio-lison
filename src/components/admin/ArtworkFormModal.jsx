@@ -77,15 +77,15 @@ export default function ArtworkFormModal({ isOpen, onClose, artworkToEdit, setAr
           </h2>
 
           <form onSubmit={handleSave} className="flex flex-col gap-4">
-            <input required type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" className="w-full p-3 bg-page text-text-main rounded-xl outline-none" />
-            <textarea required name="description" value={formData.description} onChange={handleChange} placeholder="Description..." rows="3" className="w-full p-3 bg-page text-text-main rounded-xl outline-none resize-none" />
+            <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" className="w-full p-3 bg-page text-text-main rounded-xl outline-none" />
+            <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description..." rows="3" className="w-full p-3 bg-page text-text-main rounded-xl outline-none resize-none" />
             
             <div className="flex gap-4">
-              <input required type="text" name="timeSpent" value={formData.timeSpent} onChange={handleChange} placeholder="Time (ex: 2h 30m)" className="flex-1 p-3 bg-page text-text-main rounded-xl outline-none" />
-              <input required type="date" name="date" value={formData.date} onChange={handleChange} className="flex-1 p-3 bg-page text-text-main rounded-xl outline-none" />
+              <input type="text" name="timeSpent" value={formData.timeSpent} onChange={handleChange} placeholder="Time (ex: 2h 30m)" className="flex-1 p-3 bg-page text-text-main rounded-xl outline-none" />
+              <input type="text" name="date" value={formData.date} onChange={handleChange} placeholder="January 2026" className="flex-1 p-3 bg-page text-text-main rounded-xl outline-none" />
             </div>
             
-            <input required type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category (ex: Sketch, Digital)" className="w-full p-3 bg-page text-text-main rounded-xl outline-none" />
+            <input type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category (ex: Sketch, Digital)" className="w-full p-3 bg-page text-text-main rounded-xl outline-none" />
 
             <label className="flex items-center justify-center gap-2 w-full p-4 border-2 border-dashed border-secondary/40 text-secondary bg-secondary/5 rounded-2xl cursor-pointer">
               <FaImage />

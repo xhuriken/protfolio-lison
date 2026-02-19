@@ -79,25 +79,36 @@ export default function ArtworkModal({ artworks }) {
 
           {/* Details Section */}
           <div className={`p-6 md:p-10 bg-card shrink-0 flex flex-col
-            ${isVertical ? 'w-full md:w-[400px] lg:w-[450px]' : 'w-full max-w-4xl'} // FIXED: Removed 'mx-auto' so it aligns to the left natively
+            ${isVertical ? 'w-full md:w-[400px] lg:w-[450px]' : 'w-full max-w-4xl'}
           `}>
-            <h2 className="text-3xl font-bold text-primary mb-4 pr-8">{artwork.title}</h2>
+            {/* Only show Title if not empty */}
+            {artwork.title && <h2 className="text-3xl font-bold text-primary mb-4 pr-8">{artwork.title}</h2>}
             
             <div className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded-full flex items-center gap-1">
-                <FaRegClock /> {artwork.timeSpent}
-              </span>
-              <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full flex items-center gap-1">
-                <FaCalendarAlt /> {artwork.date}
-              </span>
-              <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full flex items-center gap-1">
-                <FaPalette /> {artwork.category}
-              </span>
+              {/* Conditional badges */}
+              {artwork.timeSpent && (
+                <span className="px-3 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded-full flex items-center gap-1">
+                  <FaRegClock /> {artwork.timeSpent}
+                </span>
+              )}
+              {artwork.date && (
+                <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full flex items-center gap-1">
+                  <FaCalendarAlt /> {artwork.date}
+                </span>
+              )}
+              {artwork.category && (
+                <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full flex items-center gap-1">
+                  <FaPalette /> {artwork.category}
+                </span>
+              )}
             </div>
 
-            <p className="text-text-sub leading-relaxed whitespace-pre-line text-base md:text-lg">
-              {artwork.description}
-            </p>
+            {/* Only show Description if not empty */}
+            {artwork.description && (
+              <p className="text-text-sub leading-relaxed whitespace-pre-line text-base md:text-lg">
+                {artwork.description}
+              </p>
+            )}
           </div>
 
         </motion.div>

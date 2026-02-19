@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Outlet, Link } from 'react-router-dom';
+import { FaArrowLeft, FaUserShield } from 'react-icons/fa';
 import ArtworkCard from './components/ArtworkCard';
 import Hero from './components/Hero';
 import ArtworkModal from './components/ArtworkModal';
 import BlogAdmin from './pages/BlogAdmin';
 import './App.css';
 import { Toaster } from 'react-hot-toast';
+import { getThemeAPI } from './services/api';
+import { SnowBackground } from "./components/ui/snow"
 
 // Home Component separated for cleanliness
 function Home({ heroData, artworks }) {
@@ -21,8 +24,14 @@ function Home({ heroData, artworks }) {
       <Outlet />
       
       {/* Little secret button to go to admin */}
-      <Link to="/blog" className="fixed bottom-6 right-6 p-4 bg-primary text-card rounded-full shadow-xl hover:scale-110 transition-transform font-bold text-xs z-50">
-        ADMIN
+      <Link 
+        to="/blog" 
+        className="fixed bottom-6 right-6 p-4 bg-primary text-card rounded-full shadow-xl hover:scale-110 transition-transform flex items-center justify-center z-50 group"
+      >
+        <FaUserShield className="text-xl" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold text-xs uppercase tracking-widest">
+          Admin
+        </span>
       </Link>
     </div>
   );
@@ -33,6 +42,21 @@ function App() {
   const [heroData, setHeroData] = useState(null);
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const initApp = async () => {
+      try {
+        const themeData = await getThemeAPI();
+        // Apply the theme from the server directly to the body
+        if (themeData && themeData.currentTheme) {
+          document.body.className = themeData.currentTheme;
+        }
+      } catch (e) {
+        console.error("Theme fetch failed");
+      }
+    };
+    initApp();
+  }, []);
 
   // Fetch data when the app starts
   useEffect(() => {
@@ -71,6 +95,8 @@ function App() {
   return (
     <div className="min-h-screen p-4 md:p-8 bg-page text-text-main font-cute transition-colors duration-500">
 
+      <SnowBackground />
+
       <Toaster 
         position="bottom-center" 
         toastOptions={{
@@ -93,10 +119,14 @@ function App() {
           
           <Route path="/blog" element={
             <div className="relative">
-              <Link to="/" className="fixed top-6 left-6 px-4 py-2 bg-card text-primary rounded-xl shadow-md font-bold text-sm hover:scale-105 transition-transform z-50">
-                ← Back to Gallery
+              <Link 
+                to="/" 
+                className="fixed top-6 left-6 px-4 py-3 bg-card text-primary rounded-2xl shadow-md font-bold text-sm hover:scale-105 transition-all z-50 flex items-center gap-2 group border border-black/5"
+              >
+                <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
+                <span>Back to Gallery</span>
               </Link>
-              <BlogAdmin heroData={heroData} setHeroData={setHeroData} artworks={artworks} setArtworks={setArtworks} />
+                <BlogAdmin heroData={heroData} setHeroData={setHeroData} artworks={artworks} setArtworks={setArtworks} />
             </div>
           } />
         </Routes>

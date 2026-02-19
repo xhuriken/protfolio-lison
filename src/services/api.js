@@ -44,3 +44,19 @@ export const deleteArtworkAPI = async (id) => {
     throw new Error("Cannot connect to PHP server");
   }
 };
+
+// Fetch the current theme from server
+export const getThemeAPI = async () => {
+  const response = await fetch(`${API_BASE_URL}theme_manager.php`);
+  return await response.json();
+};
+
+// Save new theme to server
+export const saveThemeAPI = async (themeName) => {
+  const response = await fetch(`${API_BASE_URL}theme_manager.php`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ theme: themeName }),
+  });
+  return await response.json();
+};

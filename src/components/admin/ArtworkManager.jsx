@@ -53,7 +53,7 @@ export default function ArtworkManager({ artworks, setArtworks }) {
     <section className="bg-card p-6 md:p-8 rounded-[32px] shadow-sm mb-12">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 border-b border-black/5 pb-6">
         <h2 className="text-2xl font-bold text-primary">Manage Artworks</h2>
-        <button onClick={handleAddNew} className="flex items-center gap-2 px-6 py-3 bg-secondary text-card font-bold rounded-xl hover:scale-105 transition-transform">
+        <button onClick={handleAddNew} className="cursor-pointer flex items-center gap-2 px-6 py-3 bg-secondary text-card font-bold rounded-xl hover:scale-105 transition-transform">
           <FaPlus /> Add New Artwork
         </button>
       </div>
@@ -71,8 +71,8 @@ export default function ArtworkManager({ artworks, setArtworks }) {
             </div>
             
             <div className="flex gap-2">
-              <button onClick={() => handleEdit(art)} className="p-3 bg-accent/20 text-accent rounded-xl hover:scale-110 transition-transform"><FaEdit /></button>
-              <button onClick={() => handleDeleteClick(art)} className="p-3 bg-red-100 text-red-600 rounded-xl hover:scale-110 transition-transform"><FaTrash /></button>
+              <button onClick={() => handleEdit(art)} className="cursor-pointer p-3 bg-accent/20 text-accent rounded-xl hover:scale-110 transition-transform"><FaEdit /></button>
+              <button onClick={() => handleDeleteClick(art)} className="cursor-pointer p-3 bg-red-100 text-red-600 rounded-xl hover:scale-110 transition-transform"><FaTrash /></button>
             </div>
           </div>
         ))}

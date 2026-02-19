@@ -1,22 +1,52 @@
 // src/pages/BlogAdmin.jsx
+import { useState } from 'react';
 import ThemeSwitcher from '../components/admin/ThemeSwitcher';
 import HeroForm from '../components/admin/HeroForm';
-import ArtworkManager from '../components/admin/ArtworkManager'; // Import our new manager
-
+import ArtworkManager from '../components/admin/ArtworkManager';
+import toast from 'react-hot-toast';
 /**
  * BlogAdmin - Main Dashboard for the portfolio
  * This page assembles the different modules: Theme, Profile, and Artworks.
  */
 export default function BlogAdmin({ heroData, setHeroData, artworks, setArtworks }) {
-  
-  // Safety check: wait for data to be fetched from PHP before rendering
-  if (!heroData || !artworks) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+
+  // Simple password check
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (password === 'caca') { // Bon, si tu trouve ça, t'es pas sympa, alors touche pas stp
+      setIsAuthenticated(true);
+      toast.success('Welcome back sister!');
+    } else {
+      toast.error("Mauvais mot de passe, ce n'est pas de chance hein !");
+    }
+  };
+
+  // 1. If not authenticated, show the login screen
+  if (!isAuthenticated) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
-        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-primary font-bold animate-pulse text-lg">Loading Admin Panels...</p>
+      <div className="min-h-[70vh] flex items-center justify-center p-4">
+        <form onSubmit={handleLogin} className="bg-card p-8 rounded-[32px] shadow-2xl w-full max-w-md text-center">
+          <h2 className="text-3xl font-bold text-primary mb-6">Secret Access</h2>
+          <input 
+            type="password" 
+            placeholder="Enter password..." 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-4 bg-page rounded-2xl mb-4 outline-none border-2 border-transparent focus:border-primary transition-all text-center font-bold"
+          />
+          <button type="submit" className="w-full py-4 bg-primary text-card font-bold rounded-2xl hover:scale-105 transition-transform cursor-pointer">
+            Unlock
+          </button>
+        </form>
       </div>
     );
+  }
+
+  // 2. If authenticated, show the dashboard
+  if (!heroData || !artworks) {
+    return <div className="text-center p-10 font-bold text-primary animate-pulse">Loading...</div>;
   }
 
   return (

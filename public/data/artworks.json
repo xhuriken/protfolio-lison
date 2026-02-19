@@ -1,3 +1,12 @@
 [
-    
+    {
+        "id": 1,
+        "title": "",
+        "description": "",
+        "timeSpent": "",
+        "date": "",
+        "category": "",
+        "imageUrl": "\/artwork_1_1771517821.bmp",
+        "thumbnailUrl": "\/artwork_1_1771517822_thumb.jpg"
+    }
 ]
