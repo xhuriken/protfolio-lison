@@ -1,54 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: var(--bg);
-  --color-card: var(--card);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-text-main: var(--text-main);
-  --color-text-sub: var(--text-sub);
+  --color-page: #F2CFCB;
+  --color-card: #ffffff;
+  --color-primary: #443025;
+  --color-secondary: #EC9C9D;
+  --color-accent: #7F5836;
+  --color-text-main: #443025;
+  --color-text-sub: #AA7F66;
   
   --font-cute: "Quicksand", sans-serif;
 }
 
-/* Moss & Forest */
-.theme-forest {
---bg: #F7F4D5;         /* Beige */
---card: #ffffff;
---primary: #0A3323;    /* Dark green */
---secondary: #839958;  /* Moss green */
---accent: #D3968C;     /* Rosy brown */
---text-main: #105666;  /* Midnight green */
---text-sub: #436d40;
-}
 
-/* Pastel Blossom */
-.theme-blossom {
---bg: #F4DFE6;         /* Lavender Blush */
---card: #ffffff;
---primary: #E0A3BB;    /* Amaranth Pink */
---secondary: #C5CC82;  /* Citron */
---accent: #D6E6E7;     /* Azure */
---text-main: #7a4a5f;
---text-sub: #97A13B;   /* Moss Green v2 */
-}
-
-/* Sakura Choco */
 .theme-sakura {
---bg: #F2CFCB;         /* Misty Rose */
---card: #ffffff;
---primary: #443025;    /* Dark Chocolate */
---secondary: #EC9C9D;  /* Sakura */
---accent: #7F5836;     /* Aloewood */
---text-main: #443025;
---text-sub: #AA7F66;   /* Milk Tea */
+  --color-page: #F2CFCB;
+  --color-card: #ffffff;
+  --color-primary: #443025;
+  --color-secondary: #EC9C9D;
+  --color-accent: #7F5836;
+  --color-text-main: #443025;
+  --color-text-sub: #AA7F66;
 }
 
+.theme-forest {
+  --color-page: #F7F4D5;
+  --color-card: #ffffff;
+  --color-primary: #0A3323;
+  --color-secondary: #839958;
+  --color-accent: #D3968C;
+  --color-text-main: #105666;
+  --color-text-sub: #436d40;
+}
 
-/* Application globale */
+.theme-blossom {
+  --color-page: #F4DFE6;
+  --color-card: #ffffff;
+  --color-primary: #E0A3BB;
+  --color-secondary: #C5CC82;
+  --color-accent: #D6E6E7;
+  --color-text-main: #7a4a5f;
+  --color-text-sub: #97A13B;
+}
+
 body {
-  background-color: var(--bg);
-  color: var(--text-main);
+  background-color: var(--color-page);
+  color: var(--color-text-main);
   font-family: var(--font-cute);
 }

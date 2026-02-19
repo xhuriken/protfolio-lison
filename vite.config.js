@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // base: '/portfolio/' // A CHANGER EN FONCTION DE CE QUE LISON VEUX
 })
