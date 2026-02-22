@@ -8,7 +8,7 @@ export default function ArtworkCard({ artwork }) {
     // break-inside-avoid prevents the card from splitting across columns
     <Link 
       to={`/artwork/${artwork.id}`}
-      className="block break-inside-avoid mb-6 bg-card/60 rounded-3xl p-3 shadow-sm border hover:scale-101 border-black/5 hover:shadow-md transition-all cursor-pointer group"
+      className="block break-inside-avoid bg-card/60 rounded-3xl p-3 shadow-sm border hover:scale-101 border-black/5 hover:shadow-md transition-all cursor-pointer group"
     > 
       {/* Image without cropping! 
         w-full makes it take the card's width, h-auto keeps the original ratio 
