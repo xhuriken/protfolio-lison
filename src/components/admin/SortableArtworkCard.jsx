@@ -2,6 +2,7 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { FaEdit, FaTrash, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import ImageLoader from '../ImageLoader';
 
 export default function SortableArtworkCard({ art, index, totalItems, moveArtwork, handleEdit, handleDeleteClick }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: art.id });
@@ -21,12 +22,17 @@ export default function SortableArtworkCard({ art, index, totalItems, moveArtwor
       className={`relative aspect-square bg-black/5 rounded-2xl overflow-hidden group shadow-sm transition-shadow touch-none select-none cursor-grab active:cursor-grabbing
         ${isDragging ? 'shadow-2xl scale-105 ring-4 ring-primary opacity-80' : 'hover:shadow-md'}`}
     >
-      <img 
+      <ImageLoader 
+                    src={import.meta.env.BASE_URL + (art.thumbnailUrl || art.imageUrl)} 
+                    alt={art.title}  
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none" 
+                  />
+      {/* <img 
         src={import.meta.env.BASE_URL + (art.thumbnailUrl || art.imageUrl)} 
         alt={art.title} 
         draggable="false"
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none" 
-      />
+      /> */}
 
       <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 text-white text-xs font-bold rounded-lg backdrop-blur-sm z-10 pointer-events-none">
         #{index + 1}

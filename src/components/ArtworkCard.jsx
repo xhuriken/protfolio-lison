@@ -1,6 +1,7 @@
 import { FaRegClock, FaCalendarAlt, FaPalette } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Scotch from './Scotch';
+import ImageLoader from './ImageLoader';
 
 export default function ArtworkCard({ artwork }) {
   return (
@@ -12,10 +13,9 @@ export default function ArtworkCard({ artwork }) {
       {/* Image without cropping! 
         w-full makes it take the card's width, h-auto keeps the original ratio 
       */}
-      <div className="overflow-hidden rounded-2xl">
-        <img 
-          // We use thumbnailUrl if it exists (for converted BMPs), otherwise imageUrl
-          // We use thumbnailUrl if it exists (for converted BMPs), otherwise imageUrl
+<div className="overflow-hidden rounded-2xl">
+        {/* On utilise ImageLoader à la place de <img> */}
+        <ImageLoader 
           src={`${import.meta.env.BASE_URL}${artwork.thumbnailUrl || artwork.imageUrl}`}
           alt={artwork.title}
           className="w-full h-auto group-hover:scale-105 transition-transform duration-500"

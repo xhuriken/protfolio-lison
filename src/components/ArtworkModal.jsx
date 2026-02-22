@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { FaTimes, FaRegClock, FaCalendarAlt, FaPalette } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Scotch from './Scotch';
+import ImageLoader from './ImageLoader';
 
 export default function ArtworkModal({ artworks }) {
   // Get the ID from the URL
@@ -65,13 +66,13 @@ export default function ArtworkModal({ artworks }) {
           <div className={`bg-black/5 flex items-start justify-center shrink-0
             ${isVertical ? 'w-full md:w-auto' : 'w-full'}
           `}>
-            <img 
+            {/* On utilise ImageLoader à la place de <img> */}
+            <ImageLoader 
               src={`${import.meta.env.BASE_URL}${artwork.imageUrl}`}
               alt={artwork.title} 
               className={`block object-contain
                 ${isVertical 
                   ? 'w-full h-auto md:w-auto md:h-[90vh]' 
-                  // FIXED: md:max-h-[75vh] prevents square images from growing taller than the screen
                   : 'w-full h-auto md:w-auto md:max-h-[75vh]'
                 }
               `}

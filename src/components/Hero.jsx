@@ -2,6 +2,9 @@ import { useState } from 'react';
 // We import FontAwesome icons from react-icons
 import { FaEnvelope, FaPhone, FaCheck, FaRegCopy } from 'react-icons/fa';
 import Meteors from './ui/meteors';
+import ImageLoader from './ImageLoader';
+
+
 export default function Hero({ data }) {
   // State to know which button was copied ('email', 'phone', or null)
   const [copiedItem, setCopiedItem] = useState(null);
@@ -26,11 +29,16 @@ export default function Hero({ data }) {
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 w-full">
         {/* Profile Image */}
         <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 scale-110 hover:scale-115 transition-all">
-          <img 
+          <ImageLoader 
+            src={`${import.meta.env.BASE_URL}${data.imageUrl}`}
+            alt="Profile Image" 
+            className="w-full h-full object-cover rounded-4xl border-4 border-accent/20 shadow-md" 
+          />
+          {/* <img 
             src={`${import.meta.env.BASE_URL}${data.imageUrl}`}
             alt="Profile" 
             className="w-full h-full object-cover rounded-4xl border-4 border-accent/20 shadow-md"
-          />
+          /> */}
         </div>
 
         {/* Text Content */}
