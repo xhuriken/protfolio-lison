@@ -66,9 +66,9 @@ export default function ArtworkModal({ artworks }) {
           <div className={`bg-black/5 flex items-start justify-center shrink-0
             ${isVertical ? 'w-full md:w-auto' : 'w-full'}
           `}>
-            {/* On utilise ImageLoader à la place de <img> */}
+            {/* IMG */}
             <ImageLoader 
-              src={`${import.meta.env.BASE_URL}${artwork.imageUrl}`}
+              src={import.meta.env.BASE_URL + artwork.imageUrl}
               alt={artwork.title} 
               className={`block object-contain
                 ${isVertical 

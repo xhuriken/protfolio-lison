@@ -23,10 +23,10 @@ export default function SortableArtworkCard({ art, index, totalItems, moveArtwor
         ${isDragging ? 'shadow-2xl scale-105 ring-4 ring-primary opacity-80' : 'hover:shadow-md'}`}
     >
       <ImageLoader 
-                    src={import.meta.env.BASE_URL + (art.thumbnailUrl || art.imageUrl)} 
-                    alt={art.title}  
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none" 
-                  />
+        src={import.meta.env.BASE_URL + art.imageUrl}
+        alt={art.title}  
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none" 
+      />
       {/* <img 
         src={import.meta.env.BASE_URL + (art.thumbnailUrl || art.imageUrl)} 
         alt={art.title} 

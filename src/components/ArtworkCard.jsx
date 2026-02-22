@@ -13,10 +13,10 @@ export default function ArtworkCard({ artwork }) {
       {/* Image without cropping! 
         w-full makes it take the card's width, h-auto keeps the original ratio 
       */}
-<div className="overflow-hidden rounded-2xl">
+      <div className="overflow-hidden rounded-2xl">
         {/* On utilise ImageLoader à la place de <img> */}
         <ImageLoader 
-          src={`${import.meta.env.BASE_URL}${artwork.thumbnailUrl || artwork.imageUrl}`}
+          src={`${import.meta.env.BASE_URL}${artwork.imageUrl}`}
           alt={artwork.title}
           className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
         />
