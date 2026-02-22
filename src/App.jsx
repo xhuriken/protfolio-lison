@@ -56,16 +56,16 @@ function App() {
   }, []);
 
   // Fetch data when the app starts
-  useEffect(() => {
+useEffect(() => {
     const fetchData = async () => {
       try {
         // We add '?t=...' to prevent the browser from keeping the old JSON in cache
         const cacheBuster = new Date().getTime();
         
-        const heroRes = await fetch(`data/hero.json?t=${cacheBuster}`);
+        const heroRes = await fetch(`${import.meta.env.BASE_URL}data/hero.json?t=${cacheBuster}`);
         const heroJson = await heroRes.json();
         
-        const artRes = await fetch(`data/artworks.json?t=${cacheBuster}`);
+        const artRes = await fetch(`${import.meta.env.BASE_URL}data/artworks.json?t=${cacheBuster}`);
         const artJson = await artRes.json();
 
         setHeroData(heroJson);
