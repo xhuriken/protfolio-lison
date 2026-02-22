@@ -5,7 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') exit(0);
 header('Content-Type: application/json');
 
 $json_file = '../data/artworks.json';
-$upload_dir = '../'; // Save in public folder
+// Base directory for our organized images (public/artworks/)
+$base_upload_dir = '../artworks/'; 
 
 if (!file_exists($json_file)) die(json_encode(['success' => false, 'message' => 'artworks.json not found']));
 $artworks = json_decode(file_get_contents($json_file), true);
@@ -42,24 +43,45 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $allowed_extensions = ['jpg', 'jpeg', 'png', 'bmp', 'webp'];
     
     if (in_array($ext, $allowed_extensions)) {
-        $original_filename = 'artwork_' . $id . '_' . time() . '.' . $ext;
-        $destination = $upload_dir . $original_filename;
+        
+        // 1. Create a specific folder for this artwork ID (e.g., public/artworks/12/)
+        $artwork_dir = $base_upload_dir . $id . '/';
+        if (!is_dir($artwork_dir)) {
+            mkdir($artwork_dir, 0777, true);
+        }
+
+        $original_filename = 'original_' . time() . '.' . $ext;
+        $destination = $artwork_dir . $original_filename;
         
         if (move_uploaded_file($file['tmp_name'], $destination)) {
-            $newArtwork['imageUrl'] = $original_filename;
             
-            // MAGIC: If BMP, we create a compressed JPG thumbnail!
+            // The relative path we save in JSON (ex: artworks/12/original_123.bmp)
+            $public_path_original = 'artworks/' . $id . '/' . $original_filename;
+            
+            // The Modal will ALWAYS use the original file, even if it's a BMP
+            $newArtwork['imageUrl'] = $public_path_original; 
+            
+            // 2. Logic for BMP vs other formats
             if ($ext === 'bmp' && function_exists('imagecreatefrombmp')) {
+                // If it's a BMP, we create a compressed JPG copy for the Card
                 $bmp_image = imagecreatefrombmp($destination);
                 if ($bmp_image !== false) {
-                    $thumb_filename = 'artwork_' . $id . '_' . time() . '_thumb.jpg';
-                    imagejpeg($bmp_image, $upload_dir . $thumb_filename, 80); // Compress at 80% quality
+                    $thumb_filename = 'thumb_' . time() . '.jpg';
+                    $thumb_destination = $artwork_dir . $thumb_filename;
+                    
+                    imagejpeg($bmp_image, $thumb_destination, 80); // Compress at 80% quality
                     imagedestroy($bmp_image);
-                    $newArtwork['thumbnailUrl'] = $thumb_filename; // Grid uses this
+                    
+                    // The Card uses the JPG copy
+                    $newArtwork['thumbnailUrl'] = 'artworks/' . $id . '/' . $thumb_filename; 
+                } else {
+                    // Fallback if conversion fails
+                    $newArtwork['thumbnailUrl'] = $public_path_original;
                 }
             } else {
-                // If JPG/PNG, no need for duplication, grid uses the original
-                $newArtwork['thumbnailUrl'] = $original_filename;
+                // If it's ALREADY a JPG, JPEG, or PNG, no need for duplication. 
+                // Both the Modal and the Card use the same original image.
+                $newArtwork['thumbnailUrl'] = $public_path_original;
             }
         }
     }

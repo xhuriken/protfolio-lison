@@ -15,7 +15,23 @@ if (!isset($input['id'])) die(json_encode(['success' => false, 'message' => 'No 
 $id_to_delete = (int)$input['id'];
 $artworks = json_decode(file_get_contents($json_file), true);
 
-// Filter out the deleted artwork
+// --- NEW: Physically delete the folder and its images ---
+$artwork_dir = '../artworks/' . $id_to_delete . '/';
+
+// Helper function to recursively delete a directory
+if (is_dir($artwork_dir)) {
+    // Get all files inside the folder
+    $files = array_diff(scandir($artwork_dir), array('.', '..'));
+    foreach ($files as $file) {
+        // Delete each file
+        unlink("$artwork_dir/$file");
+    }
+    // Delete the now-empty folder
+    rmdir($artwork_dir);
+}
+// --------------------------------------------------------
+
+// Filter out the deleted artwork from the JSON array
 $filtered_artworks = array_values(array_filter($artworks, function($art) use ($id_to_delete) {
     return $art['id'] !== $id_to_delete;
 }));
