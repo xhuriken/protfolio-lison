@@ -1,62 +1,172 @@
 [
     {
-        "id": 2,
-        "title": "test",
-        "description": "test",
-        "timeSpent": "test",
-        "date": "tes",
-        "category": "test",
-        "imageUrl": "\/artwork_2_1771519547.jpg",
-        "thumbnailUrl": "\/artwork_2_1771519547.jpg"
+        "id": 17,
+        "title": "Cygnes",
+        "description": "",
+        "timeSpent": "1 heure",
+        "date": "Novembre 2025",
+        "category": "Aquarelle",
+        "imageUrl": "artwork_17_1771614365.bmp",
+        "thumbnailUrl": "artwork_17_1771614366_thumb.jpg"
     },
     {
-        "id": 5,
-        "title": "",
+        "id": 15,
+        "title": "Arbre",
         "description": "",
-        "timeSpent": "",
-        "date": "",
-        "category": "",
-        "imageUrl": "\/artwork_5_1771525208.jpg",
-        "thumbnailUrl": "\/artwork_5_1771525208.jpg"
+        "timeSpent": "50 min",
+        "date": "Aout 2025",
+        "category": "Aquarelle",
+        "imageUrl": "artwork_15_1771614170.bmp",
+        "thumbnailUrl": "artwork_15_1771614171_thumb.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Coquelicot ",
+        "description": "",
+        "timeSpent": "40 min",
+        "date": " F\u00e9vrier 2025",
+        "category": "Aquarelle",
+        "imageUrl": "artwork_16_1771614269.bmp",
+        "thumbnailUrl": "artwork_16_1771614270_thumb.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Moodboard savon",
+        "description": "Moodboard r\u00e9alis\u00e9 \u00e0 partir de l'odeur d'un savon",
+        "timeSpent": "1 heure",
+        "date": "Novembre 2025",
+        "category": "Montage InDesign",
+        "imageUrl": "artwork_12_1771613506.bmp",
+        "thumbnailUrl": "artwork_12_1771613507_thumb.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Chat fraise",
+        "description": "",
+        "timeSpent": "25 min",
+        "date": "Novembre 2024",
+        "category": "Crayon",
+        "imageUrl": "artwork_8_1771596913.jpg",
+        "thumbnailUrl": "artwork_8_1771596913.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Collier vivienne Westwood",
+        "description": "Repr\u00e9sentation du collier Vivienne Westwood embl\u00e9matique",
+        "timeSpent": "45 min",
+        "date": "Octobre 2025",
+        "category": "Crayons",
+        "imageUrl": "artwork_14_1771613668.jpg",
+        "thumbnailUrl": "artwork_14_1771613668.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Oignon",
+        "description": "Etude d'ombre sur un oignon",
+        "timeSpent": "30 min",
+        "date": "Septembre 2025",
+        "category": "Crayon",
+        "imageUrl": "artwork_13_1771613581.bmp",
+        "thumbnailUrl": "artwork_13_1771613582_thumb.jpg"
     },
     {
         "id": 3,
-        "title": "",
+        "title": "Premier charadesign de Pearl",
         "description": "",
-        "timeSpent": "",
-        "date": "",
-        "category": "",
-        "imageUrl": "\/artwork_3_1771525191.jpg",
-        "thumbnailUrl": "\/artwork_3_1771525191.jpg"
+        "timeSpent": "40 min",
+        "date": "Juin 2025",
+        "category": "Crayons de couleurs",
+        "imageUrl": "artwork_3_1771596358.jpg",
+        "thumbnailUrl": "artwork_3_1771596358.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Pearl ",
+        "description": "Dessin de Pearl, un personnage que j'ai invent\u00e9",
+        "timeSpent": "40 min",
+        "date": "Septembre 2025",
+        "category": "Crayons de couleurs",
+        "imageUrl": "artwork_10_1771597228.jpg",
+        "thumbnailUrl": "artwork_10_1771597228.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Pearl",
+        "description": "Esquisse de mon personnage Pearl",
+        "timeSpent": "30 min",
+        "date": "Septembre 2025",
+        "category": "Feutre",
+        "imageUrl": "artwork_11_1771597283.jpg",
+        "thumbnailUrl": "artwork_11_1771597283.jpg"
     },
     {
         "id": 4,
         "title": "",
         "description": "",
-        "timeSpent": "",
-        "date": "",
-        "category": "",
-        "imageUrl": "\/artwork_4_1771525203.jpg",
-        "thumbnailUrl": "\/artwork_4_1771525203.jpg"
+        "timeSpent": "40 min",
+        "date": "Mai 2025",
+        "category": "Crayons de couleurs",
+        "imageUrl": "artwork_4_1771596433.jpg",
+        "thumbnailUrl": "artwork_4_1771596433.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Holland",
+        "description": "Dessin du chanteur Holland",
+        "timeSpent": "35 min",
+        "date": "Juillet 2025",
+        "category": "Crayon",
+        "imageUrl": "artwork_9_1771596984.jpg",
+        "thumbnailUrl": "artwork_9_1771596984.jpg"
+    },
+    {
+        "id": 7,
+        "title": "2 s\u0153urs ",
+        "description": "Dessin r\u00e9alis\u00e9 au feutre (pointe 0.2 et 0.3)",
+        "timeSpent": "40 min",
+        "date": "F\u00e9vrier 2025",
+        "category": "Feutre",
+        "imageUrl": "artwork_7_1771596867.jpg",
+        "thumbnailUrl": "artwork_7_1771596867.jpg"
     },
     {
         "id": 6,
-        "title": "",
+        "title": "Personnage fictif",
         "description": "",
-        "timeSpent": "",
-        "date": "",
+        "timeSpent": "20 min",
+        "date": "Aout 2024",
         "category": "",
-        "imageUrl": "\/artwork_6_1771525213.png",
-        "thumbnailUrl": "\/artwork_6_1771525213.png"
+        "imageUrl": "artwork_6_1771596578.jpg",
+        "thumbnailUrl": "artwork_6_1771596578.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Esquisse de Huening Bahiyyih",
+        "description": "Esquisse d'une chanteuse",
+        "timeSpent": "30 min",
+        "date": "Mai 2025",
+        "category": "Crayon",
+        "imageUrl": "artwork_5_1771596506.jpg",
+        "thumbnailUrl": "artwork_5_1771596506.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Jinx Arcane",
+        "description": "Jinx dans mon style",
+        "timeSpent": "30 min",
+        "date": "D\u00e9cembre 2024",
+        "category": "Crayon",
+        "imageUrl": "artwork_2_1771596267.jpg",
+        "thumbnailUrl": "artwork_2_1771596267.jpg"
     },
     {
         "id": 1,
-        "title": "",
-        "description": "",
-        "timeSpent": "",
-        "date": "",
-        "category": "",
-        "imageUrl": "\/artwork_1_1771517821.bmp",
-        "thumbnailUrl": "\/artwork_1_1771517822_thumb.jpg"
+        "title": "Ania de mouthwashing",
+        "description": "Ania dans mon style",
+        "timeSpent": "45 min",
+        "date": "D\u00e9cembre 2024",
+        "category": "Crayons de couleurs",
+        "imageUrl": "artwork_1_1771596192.jpg",
+        "thumbnailUrl": "artwork_1_1771596192.jpg"
     }
 ]

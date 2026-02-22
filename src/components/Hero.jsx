@@ -71,7 +71,8 @@ export default function Hero({ data }) {
         </div>
       </div>
 
-      <div 
+      {/* Elle voulait pas mon ptit smiley... */}
+      {/* <div 
         className="absolute bottom-1 right-6 w-24 md:w-36 h-24 md:h-36 -rotate-12 bg-accent/30"
         style={{
           maskImage: 'url(hero.svg)',
@@ -79,7 +80,7 @@ export default function Hero({ data }) {
           maskRepeat: 'no-repeat',
           maskSize: 'contain'
         }}
-      />
+      /> */}
 
     </div>
   );

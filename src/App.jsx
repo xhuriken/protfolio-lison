@@ -9,6 +9,7 @@ import './App.css';
 import { Toaster } from 'react-hot-toast';
 import { getThemeAPI } from './services/api';
 import { SnowBackground } from "./components/ui/snow"
+import SmartGallery from './components/SmartGallery';
 
 // Home Component separated for cleanliness
 function Home({ heroData, artworks }) {
@@ -16,11 +17,7 @@ function Home({ heroData, artworks }) {
     <div className="max-w-7xl mx-auto relative">
       <Hero data={heroData} />
       
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
-        {artworks.map((artwork) => (
-          <ArtworkCard key={artwork.id} artwork={artwork} />
-        ))}
-      </div>
+      <SmartGallery artworks={artworks} />
       <Outlet />
       
       {/* Little secret button to go to admin */}
